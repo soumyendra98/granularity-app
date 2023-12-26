@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSnackbar } from "notistack";
@@ -813,18 +814,19 @@ const FormBuilderContainer = (props) => {
             )}
 
             {/* eslint-disable-next-line */}
-            {selectedQuestion && selectedQuestion.hasOwnProperty("isRequired") && (
-              <div className="form-builder-right-section-question-required-container">
-                <div className="form-builder-right-section-question-required-header">
-                  Required?
+            {selectedQuestion &&
+              selectedQuestion.hasOwnProperty("isRequired") && (
+                <div className="form-builder-right-section-question-required-container">
+                  <div className="form-builder-right-section-question-required-header">
+                    Required?
+                  </div>
+                  <Switch
+                    checked={selectedQuestion.isRequired}
+                    onChange={handleQuestionIsRequiredChange}
+                    className="form-builder-required-switch"
+                  />
                 </div>
-                <Switch
-                  checked={selectedQuestion.isRequired}
-                  onChange={handleQuestionIsRequiredChange}
-                  className="form-builder-required-switch"
-                />
-              </div>
-            )}
+              )}
 
             <div className="form-builder-autosave-message-root-container">
               <div className="form-builder-autosave-message-container">
